@@ -9,19 +9,29 @@ function render(variables = {}) {
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
-
+  //**Name*/
+  let name = `<h1>${variables.name}</h1>`;
+  if (variables.name == null) name = "<h1></h1>";
+  //**Last name */
+  let lastname = `<h1>${variables.lastname}</h1>`;
+  if (variables.lastname == null) lastname = "<h1></h1>";
+  /**position S.M. */
+  let SMPosition = "left";
+  if (variables.socialMediaPosition == null) SMPosition = "right";
+  else if (variables.socialMediaPosition == "right") SMPosition = "right";
   // reset the website body with the new html output
+
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
+          ${name}${lastname}
           <h2>Web Developer</h2>
           <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/alesanchezr"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="https://github.com/alesanchezr"><i class="fa fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/alesanchezr"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/alesanchezr"><i class="fa fa-instagram"></i></a></li>
+            <ul class=${SMPosition}>
+            <li><a href="https://twitter.com/alesanchezr"><li class="fa fa-twitter"></i></a></li>
+            <li><a href="https://github.com/alesanchezr"><li class="fa fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/alesanchezr"><li class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/alesanchezr"><li class="fa fa-instagram"></i></a></li>
           </ul>
         </div>
     `;

@@ -714,6 +714,11 @@ function render(variables = {}) {
   /**position S.M. */
   let SMPosition = "left";
   if (variables.socialMediaPosition == null) SMPosition = "right";else if (variables.socialMediaPosition == "right") SMPosition = "right";
+
+  /**twitter */
+  let twitter = `<a href="https://twitter.com/${variables.twitter}">`;
+  if (variables.twitter == null) variables = "<a>";
+
   // reset the website body with the new html output
 
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
@@ -723,7 +728,7 @@ function render(variables = {}) {
           <h2>Web Developer</h2>
           <h3>Miami, USA</h3>
             <ul class=${SMPosition}>
-            <li><a href="https://twitter.com/alesanchezr"><li class="fa fa-twitter"></i></a></li>
+            <li>${twitter}<li class="fa fa-twitter"></i></a></li>
             <li><a href="https://github.com/alesanchezr"><li class="fa fa-github"></i></a></li>
             <li><a href="https://linkedin.com/alesanchezr"><li class="fa fa-linkedin"></i></a></li>
             <li><a href="https://instagram.com/alesanchezr"><li class="fa fa-instagram"></i></a></li>

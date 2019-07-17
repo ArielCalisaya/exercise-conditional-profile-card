@@ -10,10 +10,10 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
   //**Name*/
-  let name = `<h1>${variables.name}</h1>`;
+  let name = `${variables.name}`;
   if (variables.name == null) name = "<h1></h1>";
   //**Last name */
-  let lastname = `<h1>${variables.lastname}</h1>`;
+  let lastname = `${variables.lastname}`;
   if (variables.lastname == null) lastname = "<h1></h1>";
   /**position S.M. */
   let SMPosition = "left";
@@ -22,21 +22,46 @@ function render(variables = {}) {
 
   /**twitter */
   let twitter = `<a href="https://twitter.com/${variables.twitter}">`;
-  if (variables.twitter == null) variables = "<a>";
+  if (variables.twitter == null) twitter = "<a>";
+
+  /**github */
+  let github = `<a href="https://github.com/${variables.github}">`;
+  if (variables.github == "alesanchezr") github = "<a>";
+
+  /**linkedin */
+  /**linkedin */
+  let linkedin = `<a href="https://linkedin.com/${variables.linkedin}">`;
+  if (variables.linkedin == null) linkedin = "<a>";
+
+  /**instagram */
+  let instagram = `<a href="https://instagram.com/${variables.instagram}">`;
+  if (variables.instagram == null) instagram = "<a>";
+
+  /**Role */
+  let role = `${variables.role}`;
+  if (variables.role == null) role = "<h2></h2>";
+
+  /**city */
+  let city = `${variables.city}`;
+  if (variables.city == null) city = "<h3></h3>";
+
+  /**country */
+  let country = `${variables.country}`;
+  if (variables.country == null) country = "<h3></h3>";
 
   // reset the website body with the new html output
 
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          ${name}${lastname}
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
+          <h1>${name} ${lastname}</h1>
+          <h2>${role}</h2>
+          <h3>${city}, ${country}</h3>
             <ul class=${SMPosition}>
             <li>${twitter}<li class="fa fa-twitter"></i></a></li>
-            <li><a href="https://github.com/alesanchezr"><li class="fa fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/alesanchezr"><li class="fa fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/alesanchezr"><li class="fa fa-instagram"></i></a></li>
+            <li>${github}<li class="fa fa-github"></i></a></li>
+            <li>${linkedin}<li class="fa fa-linkedin"></i></a></li>
+            <li>${instagram}<li class="fa fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
